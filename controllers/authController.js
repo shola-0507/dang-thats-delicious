@@ -9,7 +9,7 @@ exports.login = passport.authenticate('local', {
 
 exports.logout = (req, res) => {
     req.logout();
-    req.flash('You are now logged out.');
+    req.flash('success', 'You are now logged out.');
     res.redirect('/');
 }
 
@@ -18,6 +18,6 @@ exports.mustBeLoggedIn = (req, res, next) => {
         next();
         return;
     }
-    req.flash('You must be logged in.');
+    req.flash('warning', 'You must be logged in.');
     res.redirect('/login');
 }

@@ -41,4 +41,7 @@ router.post('/register',
 
 router.post('/login', authController.login);
 
+router.get('/account', userController.account);
+router.post('/account', catchErrors(userController.updateAccount));
+
 module.exports = router;
