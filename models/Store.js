@@ -54,6 +54,11 @@ storeSchema.pre('save', async function(next) {
     next();
 });
 
+storeSchema.index({
+    name: 'text',
+    description: 'text'
+});
+
 storeSchema.statics.getTagsList = function () {
     return this.aggregate([
         { $unwind : '$tags' },
